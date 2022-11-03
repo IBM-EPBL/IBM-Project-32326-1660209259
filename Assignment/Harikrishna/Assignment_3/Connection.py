@@ -16,7 +16,7 @@ def Connect():
                                  config=Config(signature_version="oauth"),
                                  endpoint_url=COS_ENDPOINT
                                  )
-        print("Connected Successfully :-)")
+        print("Connected Successfully")
         return cos
 
     except:
