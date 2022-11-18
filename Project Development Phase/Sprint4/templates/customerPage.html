@@ -72,15 +72,18 @@
         </nav>
 
     </div>
+    <div class="font-bold text-blue-500 text-2xl text-center">
+        Customer Page
+    </div>
 
-    <div>
-        <div class="flex flex-col w-1/4">
+    <div class="flex flex-col items-center justify-center">
+        <div class="flex flex-col w-auto">
             <div class=" overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="overflow-hidden">
                         <table class="min-w-full">
                             <thead class="border-b">
-                                
+
                                 <tr>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                         Id
@@ -108,24 +111,24 @@
                                 <form action="" method="post">
                                     <tr class="border-b">
                                         {% for i in tickets %}
-                                <tr>
-                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        {{i['TICKET_ID']}}
-                                    </th>
-                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        {{i['ISSUE']}}
-                                    </th>
-                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        {{i['STATUS']}}
-                                    </th>
-                                </tr>
-                                {% endfor %}
+                                    <tr>
+                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                            {{i['TICKET_ID']}}
+                                        </th>
+                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                            {{i['ISSUE']}}
+                                        </th>
+                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                            {{i['STATUS']}}
+                                        </th>
+                                    </tr>
+                                    {% endfor %}
 
-                                        <!-- <td name="issue" id="issue"
+                                    <!-- <td name="issue" id="issue"
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             Check section not working
                                         </td> -->
-                                        <!-- <td
+                                    <!-- <td
                                             class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
                                             <input name="comments" id="comments"
                                                 class="form-check-input appearance-none h-10 p-1 w-full border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200  align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
@@ -136,8 +139,8 @@
                                                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
                                                 type="checkbox" name="approve" value="Approve" id="approve">
                                         </td> -->
-                                        <!-- </td> -->
-                                        <!-- <td>
+                                    <!-- </td> -->
+                                    <!-- <td>
                                             <button type="submit"
                                                 class="bg-green-500 hover:bg-green-700 text-white font-light-2 py-1 px-2 rounded">Submit</button>
                                         </td> -->
