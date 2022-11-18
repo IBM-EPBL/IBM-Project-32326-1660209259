@@ -85,14 +85,14 @@
                                         Id
                                     </th>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        Agent name
+                                        ISSUE
                                     </th>
-                                    <!-- <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                         Customer Id
                                     </th>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                         Status
-                                    </th> -->
+                                    </th>
 
                                 </tr>
                             </thead>
@@ -111,19 +111,19 @@
                                             {{i['ISSUE']}}
                                         </td>
 
-                                        <!-- <td name="issue" id="issue"
+                                        <td name="issue" id="issue"
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {{i['CUSTOMER_ID']}}
                                         </td>
                                         <td name="issue" id="issue"
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {{i['STATUS']}}
-                                        </td> -->
+                                        </td>
 
                                         <td>
                                             <input
                                                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                                type="checkbox" value="" id="flexCheckDefault">
+                                                type="checkbox" value="{{i['TICKET_ID']}}" name="id" id="flexCheckDefault">
                                         </td>
 
                                         <!-- </td> -->

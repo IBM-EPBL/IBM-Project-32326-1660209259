@@ -98,17 +98,17 @@
                             </thead>
                             <tbody>
                                 <form action="" method="post">
-                                    {% for i in tickets %}
+                                    {% for i in agents %}
                                     <tr class="border-b">
 
                                         <td id="id" name="username"
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{i['TICKET_ID']}}
+                                            {{i['ID']}}
                                         </td>
 
                                         <td id="userName" id="email" name="email"
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{i['ISSUE']}}
+                                            {{i['NAME']}}
                                         </td>
 
                                         <!-- <td name="issue" id="issue"
@@ -123,7 +123,7 @@
                                         <td>
                                             <input
                                                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                                type="checkbox" value="" id="flexCheckDefault">
+                                                type="checkbox" value="{{i['ID']}}" name="id" id="flexCheckDefault">
                                         </td>
 
                                         <!-- </td> -->

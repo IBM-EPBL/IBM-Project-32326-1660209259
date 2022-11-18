@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <title></title>
+    <title>Admin</title>
 </head>
 
 <script>
@@ -19,6 +19,9 @@
         var checked = document.getElementById('approve')
         console.log(name, email, id, comments)
     }
+
+    var checkboxValidator = document.getElementById('form')
+
 </script>
 
 <body>
@@ -85,57 +88,64 @@
                                         Id
                                     </th>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        Agent name
-                                    </th>
-                                    <!-- <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        Customer Id
+                                        Name
                                     </th>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        Status
+                                        Email Id
+                                    </th>
+                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                        Issue
+                                    </th>
+                                    <!-- <th scope="col"
+                                        class="text-sm text-center font-medium text-gray-900 px-6 py-4 text-left">
+                                        Comments
                                     </th> -->
-
+                                    <th scope="col"
+                                        class="text-sm text-start font-medium text-gray-900 px-6 py-4 text-left">
+                                        Actions
+                                    </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <form action="" method="post">
-                                    {% for i in tickets %}
+                            <form action="" method="post" id="form">
+                                <tbody>
                                     <tr class="border-b">
-
+                                        <td id="id"
+                                            class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1
+                                        </td>
                                         <td id="id" name="username"
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{i['TICKET_ID']}}
+                                            name
                                         </td>
 
                                         <td id="userName" id="email" name="email"
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{i['ISSUE']}}
+                                            Check user
                                         </td>
 
-                                        <!-- <td name="issue" id="issue"
-                                            class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{i['CUSTOMER_ID']}}
-                                        </td>
                                         <td name="issue" id="issue"
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{i['STATUS']}}
-                                        </td> -->
-
-                                        <td>
-                                            <input
-                                                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                                type="checkbox" value="" id="flexCheckDefault">
+                                            Check section not working
                                         </td>
-
+                                        <!-- <td
+                                            class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+                                            <input name="comments" id="comments"
+                                                class="form-check-input appearance-none h-10 p-1 w-full border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200  align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                                                type="text">
+                                        </td> -->
+                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            <input
+                                                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                                                type="checkbox" name="approve" value="Approve" id="approve">
+                                        </td>
                                         <!-- </td> -->
-
-
+                                        <!-- <td>
+                                            <button type="submit"
+                                                class="bg-green-500 hover:bg-green-700 text-white font-light-2 py-1 px-2 rounded">Submit</button>
+                                        </td> -->
                                     </tr>
-                                    {% endfor %}
-                                    <button type="submit"
-                                        class="bg-green-500 hover:bg-green-700 text-white font-light-2 py-1 px-2 rounded">Submit</button>
 
-                                </form>
-                            </tbody>
+                                </tbody>
+                            </form>
                         </table>
                     </div>
                 </div>
