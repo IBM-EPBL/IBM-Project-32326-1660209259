@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request,url_for,redirect
 from dao import conn
 from ibm_db import prepare,execute,bind_param,fetch_assoc
+from mailer import sendMailThroughSendGrid
 
 app =Flask(__name__)
 userType = None
@@ -8,6 +9,16 @@ userID = None
 
 print(conn)
 
+@app.route('/',methods=['POST','GET'])
+def home():
+    if userType == "customer":
+        return redirect(url_for('viewcusttickets'))
+    elif userType == "agent":
+        return redirect(url_for('agenttickets'))
+    elif userType == "admin":
+        return redirect(url_for('assignticket'))
+    else:
+        return redirect(url_for('login'))
 @app.route('/login' ,methods=['POST','GET'])
 def login():
     global userID
@@ -21,6 +32,7 @@ def login():
         bind_param(stmt, 2, request.form['password'])
         execute(stmt)
         account = fetch_assoc(stmt)
+        print(account)
         if account != False:
             userType = "".join(tempUserType)
             userID = account['ID']
@@ -101,6 +113,12 @@ def assignagent():
         bind_param(stmt, 2, request.form['id'])
         bind_param(stmt, 3, ticketid)
         execute(stmt)
+        getCustomer = "SELECT EMAIL FROM CUSTOMER WHERE ID = (SELECT CUSTOMER_ID FROM TICKET where TICKET_ID = ?)"
+        stmt = prepare(conn, getCustomer)
+        bind_param(stmt, 1, ticketid)
+        execute(stmt)
+        account = fetch_assoc(stmt)
+        sendMailThroughSendGrid(ticketid,account['EMAIL'],"Assigned",request.form['id'])
         return redirect(url_for('assignticket'))
     return render_template("agentassignpage.html",agents = agents)
 
@@ -117,6 +135,12 @@ def agenttickets():
         bind_param(stmt, 1, "Approved")
         bind_param(stmt, 2, request.form['id'])
         execute(stmt)
+        getCustomer = "SELECT EMAIL FROM CUSTOMER WHERE ID = (SELECT CUSTOMER_ID FROM TICKET where TICKET_ID = ?)"
+        stmt = prepare(conn, getCustomer)
+        bind_param(stmt, 1, request.form['id'])
+        execute(stmt)
+        account = fetch_assoc(stmt)
+        sendMailThroughSendGrid(request.form['id'],account['EMAIL'],"Approved",userID)
         print(request.form.items)
         return render_template("agenttickets.html",tickets = tickets)
     tickets = []
@@ -139,8 +163,8 @@ def register():
         mail_check_query = "insert into "+"".join(tempUserType)+" (EMAIL,NAME,PASSWORD) values (?,?,?)"
         stmt = prepare(conn, mail_check_query)
         bind_param(stmt, 1, request.form['email'])
-        bind_param(stmt, 2, request.form['password'])
-        bind_param(stmt, 3, request.form['name'])
+        bind_param(stmt, 2, request.form['name'])
+        bind_param(stmt, 3, request.form['password'])
         execute(stmt)
         return redirect(url_for('login'))
     return render_template("signup.html")
