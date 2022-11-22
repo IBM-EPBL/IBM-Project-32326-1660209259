@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Admin</title>
+</head>
+
+<script>
+    function handleSubmit(flag) {
+        var name = document.getElementById('userName').value
+        var email = document.getElementById('email').value
+        var id = document.getElementById('id')
+        var comments = document.getElementById('comments')
+        var checked = document.getElementById('approve')
+        console.log(name, email, id, comments)
+    }
+
+    var checkboxValidator = document.getElementById('form')
+
+</script>
+
+<body>
+    <!-- navbar -->
+    <div class="bg-inherit">
+        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+            <div class="container flex flex-wrap items-center justify-between mx-auto">
+                <a href="https://flowbite.com/" class="flex items-center">
+                    <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" /> -->
+                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Customer care
+                        registry</span>
+                </a>
+                <button data-collapse-toggle="navbar-default" type="button"
+                    class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul
+                        class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <li>
+                            <a href="#"
+                                class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                                aria-current="page">Home</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#"
+                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+                        </li> -->
+                        <!-- <li>
+                            <a href="#"
+                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+    <div class="font-bold text-blue-500 text-2xl text-center">
+        Admin Page
+    </div>
+
+    <div class="flex flex-col items-center justify-center">
+        <div class="flex flex-col w-3/4">
+            <div class=" overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="overflow-hidden">
+                        <table class="min-w-full">
+                            <thead class="border-b">
+                                <tr>
+                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                        Id
+                                    </th>
+                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                        Name
+                                    </th>
+                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                        Email Id
+                                    </th>
+                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                        Issue
+                                    </th>
+                                    <!-- <th scope="col"
+                                        class="text-sm text-center font-medium text-gray-900 px-6 py-4 text-left">
+                                        Comments
+                                    </th> -->
+                                    <th scope="col"
+                                        class="text-sm text-start font-medium text-gray-900 px-6 py-4 text-left">
+                                        Actions
+                                    </th>
+                                </tr>
+                            </thead>
+                            <form action="" method="post" id="form">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td id="id"
+                                            class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1
+                                        </td>
+                                        <td id="id" name="username"
+                                            class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            name
+                                        </td>
+
+                                        <td id="userName" id="email" name="email"
+                                            class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            Check user
+                                        </td>
+
+                                        <td name="issue" id="issue"
+                                            class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            Check section not working
+                                        </td>
+                                        <!-- <td
+                                            class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+                                            <input name="comments" id="comments"
+                                                class="form-check-input appearance-none h-10 p-1 w-full border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200  align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                                                type="text">
+                                        </td> -->
+                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            <input
+                                                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                                                type="checkbox" name="approve" value="Approve" id="approve">
+                                        </td>
+                                        <!-- </td> -->
+                                        <!-- <td>
+                                            <button type="submit"
+                                                class="bg-green-500 hover:bg-green-700 text-white font-light-2 py-1 px-2 rounded">Submit</button>
+                                        </td> -->
+                                    </tr>
+
+                                </tbody>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
